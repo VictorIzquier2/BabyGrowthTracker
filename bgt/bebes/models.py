@@ -17,6 +17,6 @@ class Bebe(models.Model):
   
   def __str__(self):
     if self.sexo == 'varon':
-      return f'👦{self.id}: {self.nombre} {self.apellidos}'
+      return f'👦: {self.nombre} {self.apellidos}'
     else:
-      return f'👧{self.id}: {self.nombre} {self.apellidos}'
+      return f'👧: {self.nombre} {self.apellidos}'

@@ -18,7 +18,7 @@ class Desarrollo(models.Model):
   actividades = models.JSONField(default=list)
   peso = models.DecimalField(max_digits=5, decimal_places=2)
   talla = models.DecimalField(max_digits=5, decimal_places=2)
-  comentarios = models.TextField
+  comentarios = models.TextField()
   
   def __str__(self):
     if self.actitud == 'alegre':
