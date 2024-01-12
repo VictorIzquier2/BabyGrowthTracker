@@ -2,7 +2,6 @@ from django.test import TestCase
 from django.contrib.auth.models import User
 from bebes.models import Bebe
 from .models import Vacuna
-from decimal import Decimal
 
 # Create your tests here.
 class AseoModelTest(TestCase):
