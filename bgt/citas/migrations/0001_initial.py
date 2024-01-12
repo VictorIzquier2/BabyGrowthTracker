@@ -14,11 +14,14 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Aseo',
+            name='Cita',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('pipi', models.IntegerField()),
-                ('caca', models.JSONField(default=list)),
+                ('fecha', models.DateField()),
+                ('especialista', models.CharField(max_length=250)),
+                ('cita', models.JSONField(default=dict)),
+                ('estado', models.CharField(choices=[('pendiente', 'Pendiente'), ('confirmada', 'Confirmada'), ('cancelada', 'Cancelada')], max_length=10)),
+                ('mensaje', models.TextField()),
                 ('bebe', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='bebes.bebe')),
             ],
         ),

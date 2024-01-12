@@ -1,9 +1,9 @@
 from django.db import models
-from usuarios.models import Usuario
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Bebe(models.Model):
-  usuario = models.ForeignKey(Usuario, on_delete=models.SET_NULL, null=True)
+  usuario = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
   nombre = models.CharField(max_length=50)
   apellidos = models.CharField(max_length=100)
   fecha_nacimiento = models.DateField()
