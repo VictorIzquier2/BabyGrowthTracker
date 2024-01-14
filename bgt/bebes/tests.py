@@ -1,6 +1,7 @@
 from django.test import TestCase
 from django.urls import reverse
 from django.contrib.auth.models import User
+from rest_framework import status
 from .models import Bebe
 from .serializadores import BebeSerializador
 
@@ -43,9 +44,9 @@ class BebeModelTest(TestCase):
     objeto_esperado = f'{self.bebe.historico}'
     self.assertEqual(objeto_esperado, '[{"fecha": "2024-11-01","id_aseo": 1,"id_cita": 1,"id_comida": 1,"id_suenho": 1,"id_desarrollo": 1,"id_vacunacion": 1}]')
     
+  # Serializador
   def test_serializador(self):
     serializador = BebeSerializador(self.bebe)
     objeto_esperado = {'usuario': self.usuario.id, 'nombre': 'Dario', 'apellidos': 'Fernandez Izquierdo', 'fecha_nacimiento': '2022-03-03', 'sexo': 'varon', 'fecha': '2024-11-01', 'historico': '[{"fecha": "2024-11-01","id_aseo": 1,"id_cita": 1,"id_comida": 1,"id_suenho": 1,"id_desarrollo": 1,"id_vacunacion": 1}]'}
     self.assertEqual(objeto_esperado, serializador.data)
-    
     

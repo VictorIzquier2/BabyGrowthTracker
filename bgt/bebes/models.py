@@ -14,6 +14,7 @@ class Bebe(models.Model):
   sexo = models.CharField(max_length=5, choices=SEXO_OPCIONES)
   fecha = models.DateField()
   historico = models.JSONField(default=list)
+  imagen = models.ImageField(upload_to='imagenes')
   
   def __str__(self):
     if self.sexo == 'varon':
