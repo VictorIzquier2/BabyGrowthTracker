@@ -4,6 +4,39 @@ import json
 
 # Create your models here.
 class Comida(models.Model):
+  
+  """
+    Modelo Comida para registrar la alimentación de un bebé.
+
+    Este modelo almacena información detallada sobre las diferentes comidas del día de un bebé, 
+    como biberones, agua, comida, merienda y cena. Utiliza campos JSONField para almacenar 
+    múltiples registros de alimentación para cada categoría.
+
+    Atributos:
+      CANTIDAD_OPCIONES (list of tuple): Define las posibles cantidades consumidas, como 'todo', 
+      'bastante', 'poco', y 'nada'.
+      
+      bebe (ForeignKey): Referencia al bebé asociado con el registro de alimentación.
+      
+      biberones (JSONField): Detalles de los biberones tomados, incluyendo hora y cantidad.
+      
+      agua (JSONField): Detalles del consumo de agua, incluyendo hora y cantidad.
+      
+      comida (JSONField): Detalles de la comida, incluyendo hora, plato y cantidad.
+      
+      merienda (JSONField): Detalles de la merienda, incluyendo hora, plato y cantidad.
+      
+      cena (JSONField): Detalles de la cena, incluyendo hora, plato y cantidad.
+
+    Métodos:
+      __str__(self): Devuelve una representación en cadena del registro de alimentación, 
+      incluyendo todos los detalles de las comidas del bebé.
+
+    Nota:
+      Cada campo JSONField debe almacenar una lista de objetos con las claves 'hora', 'plato' (si aplica), 
+      y 'cantidad'. En el caso de 'merienda', se utiliza un objeto único en lugar de una lista.
+    """
+  
   CANTIDAD_OPCIONES = [
     ('todo', 'Todo'),
     ('bastante', 'Bastante'),
