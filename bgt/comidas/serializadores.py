@@ -28,4 +28,4 @@ class ComidaSerializador(serializers.ModelSerializer):
   
   class Meta:
     model = Comida
-    fields = ('bebe', 'biberones', 'agua', 'comida', 'merienda', 'cena')
+    fields = ('id','bebe', 'biberones', 'agua', 'comida', 'merienda', 'cena')

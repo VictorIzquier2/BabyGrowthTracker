@@ -19,7 +19,7 @@ class BebeSerializador(serializers.ModelSerializer):
   
   class Meta:
     model = Bebe
-    fields = ('usuario', 'nombre', 'apellidos', 'fecha_nacimiento', 'sexo', 'fecha', 'historico', 'imagen')
+    fields = ('id', 'usuario', 'nombre', 'apellidos', 'fecha_nacimiento', 'sexo', 'fecha', 'historico', 'imagen')
     
 class UserSerializador(serializers.ModelSerializer):
   

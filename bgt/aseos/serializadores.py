@@ -26,4 +26,4 @@ class AseoSerializador(serializers.ModelSerializer):
   
   class Meta:
     model = Aseo
-    fields = ('bebe', 'pipi', 'caca')
+    fields = ('id', 'bebe', 'pipi', 'caca')

@@ -27,4 +27,4 @@ class SuenhoSerializador(serializers.ModelSerializer):
   
   class Meta:
     model = Suenho
-    fields = ('bebe', 'periodos', 'total_horas_dia')
+    fields = ('id', 'bebe', 'periodos', 'total_horas_dia')

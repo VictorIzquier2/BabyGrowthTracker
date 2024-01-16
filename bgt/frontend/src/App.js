@@ -27,16 +27,29 @@ class App extends Component {
   render() {
     return (
       <div>
-        {this.state.bebes.map(item => (
-        <div key={item.usuario}>
-        <h1>{item.nombre} {item.apellidos}</h1>
-        <ul>
-          <li>Fecha de nacimiento: {item.fecha_nacimiento}</li>
-          <li>Sexo: {item.sexo}</li>
-          <li>Fecha: {item.fecha}</li>
-        </ul>
-        </div>
-        ))}
+        <h1>Bebés</h1>
+        <table border="1">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Imagen</th>
+              <th>Nombre</th>
+              <th>Fecha de nacimiento</th>
+              <th>Sexo</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.state.bebes.map(item => (
+              <tr key={item.usuario}>
+                <td>{item.id}</td>
+                <td><img src={item.imagen} alt={item.imagen} width="64" height="64"></img></td>
+                <td>{item.nombre} {item.apellidos}</td>
+                <td>{item.fecha_nacimiento}</td>
+                <td>{item.sexo}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     );
   }

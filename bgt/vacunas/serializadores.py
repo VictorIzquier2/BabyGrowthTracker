@@ -27,4 +27,4 @@ class VacunaSerializador(serializers.ModelSerializer):
   
   class Meta:
     model = Vacuna
-    fields = ('bebe', 'fecha', 'vacuna', 'cita', 'estado', 'mensaje')
+    fields = ('id', 'bebe', 'fecha', 'vacuna', 'cita', 'estado', 'mensaje')

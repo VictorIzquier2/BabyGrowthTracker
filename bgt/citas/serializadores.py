@@ -28,4 +28,4 @@ class CitaSerializador(serializers.ModelSerializer):
     
   class Meta:
     model = Cita
-    fields = ('bebe', 'fecha', 'especialista', 'cita', 'estado', 'mensaje')
+    fields = ('id', 'bebe', 'fecha', 'especialista', 'cita', 'estado', 'mensaje')

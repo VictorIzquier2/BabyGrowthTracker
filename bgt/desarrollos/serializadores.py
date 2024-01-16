@@ -28,7 +28,7 @@ class DesarrolloSerializador(serializers.ModelSerializer):
   
   class Meta:
     model = Desarrollo
-    fields = ('bebe', 'actitud', 'actividades', 'peso', 'talla', 'comentarios')
+    fields = ('id', 'bebe', 'actitud', 'actividades', 'peso', 'talla', 'comentarios')
     
 
     
