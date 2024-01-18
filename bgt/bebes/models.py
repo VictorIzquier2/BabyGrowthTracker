@@ -4,26 +4,36 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Bebe(models.Model):
   """
-  Vista de conjunto de modelos para el modelo Aseo.
+  Clase Bebe para almacenar información sobre bebés.
 
-  Esta vista proporciona acciones estándar para 'crear', 'leer', 'actualizar' y 'eliminar' (CRUD)
-  para el modelo Aseo. Se utiliza en conjunto con Django REST framework para construir una API
-  para el manejo de datos relacionados con los eventos de aseo de bebés.
+  Esta clase es utilizada para registrar y manejar datos de bebés, incluyendo su nombre,
+  apellidos, fecha de nacimiento, sexo, una fecha adicional (posiblemente para registrar 
+  eventos o controles específicos), un histórico en formato JSON (para almacenar información 
+  variable y adicional sobre el bebé), y una imagen.
 
   Atributos:
-      permission_classes (tuple): 
-      Define las clases de permisos utilizadas para autorizar o restringir accesos a las acciones 
-      de la API. En este caso, se utiliza 'isAuthorOrReadOnly' para permitir operaciones de 
-      escritura solo a los autores de los registros.
-      
-      queryset (QuerySet): El conjunto de datos de Aseo que la vista manejará. Aquí se utiliza 
-      Aseo.objects.all()' para incluir todos los registros de Aseo.
-      
-      serializer_class (ModelSerializer): La clase serializadora utilizada para convertir 
-      instancias de Aseo entre formatos de datos complejos y Python datatypes.
+    usuario (User): Usuario de Django asociado con el bebé. La relación es una ForeignKey
+    que permite la asociación con el modelo User de Django. Si el usuario es eliminado, 
+    este campo se establece en NULL.
+    
+    nombre (str): Nombre del bebé.
+    
+    apellidos (str): Apellidos del bebé.
+    
+    fecha_nacimiento (Date): Fecha de nacimiento del bebé.
+    
+    SEXO_OPCIONES (list of tuple): Opciones de sexo para el bebé, que incluyen 'varon' y 'mujer'.
+    sexo (str): Sexo del bebé, elegido de las opciones disponibles
+    .
+    fecha (Date): Una fecha adicional, cuyo propósito específico puede variar.
+    
+    historico (JSON): Un campo JSON para almacenar datos históricos o adicionales del bebé.
+    
+    imagen (Image): Imagen del bebé, almacenada en la ubicación especificada.
 
-  La vista está configurada para utilizar 'AseoSerializador' como su clase serializadora
-  y aplica un control de permisos personalizado a través de 'isAuthorOrReadOnly'.
+  Métodos:
+    __str__: Retorna una cadena de caracteres que representa al bebé, incluyendo su nombre,
+    apellidos y un ícono que varía según el sexo del bebé.
   """
   
   usuario = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
